@@ -7,5 +7,13 @@ module.exports = {
         cb(err, results);
       });
     }
+  },
+  listing: {
+    get: function (id, cb) {
+      db.query('SELECT * FROM listing_header WHERE id = ' + id, (err, results) => {
+        cb(err, results);
+      });
+    }
   }
+
 }

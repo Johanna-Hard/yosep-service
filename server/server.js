@@ -9,9 +9,14 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.get('/listing_header', (req, res) => {
-  console.log('get request is detected');
   models.listings.get((err, results)=> {
     res.json(results);
+  });
+});
+
+app.get('/listing_header/:id', (req, res) => {
+  models.listing.get(req.params.id, (err, result) => {
+    res.json(result);
   });
 });
 
