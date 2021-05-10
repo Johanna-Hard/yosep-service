@@ -10,7 +10,7 @@ module.exports = {
   },
   listing: {
     get: function (id, cb) {
-      db.query('SELECT * FROM listing_header WHERE id = ' + id, (err, results) => {
+      db.query('SELECT id, listingName, listingDescription, hostId, review, rating, address1, address2, city, state, zipCode, country, accomodates, bathrooms AS numberOfBathrooms, bedrooms AS numberOfBedrooms, beds AS numberOfBeds FROM listing_header WHERE id = ' + id, (err, results) => {
         cb(err, results);
       });
     }
