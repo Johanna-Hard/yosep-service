@@ -14,6 +14,13 @@ module.exports = {
         cb(err, results);
       });
     }
+  },
+  hostedBy: {
+    get: function (id, cb) {
+      db.query('SELECT id, hostId, accomodates, bathrooms, bedrooms, beds FROM listing_header WHERE id = ' + id, (err, result) => {
+        cb(err, result);
+      });
+    }
   }
 
 }

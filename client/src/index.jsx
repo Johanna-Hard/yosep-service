@@ -7,7 +7,7 @@ class App extends React.Component {
   constructor(props) {
     super();
     this.state = {
-      listingId: 4,
+      listingId: 1,
       listing: {}
     };
   }
@@ -20,8 +20,10 @@ class App extends React.Component {
     console.log(this.state.listing);
   }
 
+
+
   getData() {
-    axios.get(`/api/listingdescription/${this.state.listingId}`)
+    axios.get(`/api/hostedBy/${this.state.listingId}`)
       .then(resp => {
         this.setState({ listing: resp.data[0] });
       })
@@ -30,10 +32,14 @@ class App extends React.Component {
       });
   }
 
+  isPlural(val) {
+    return val > 1 ? 's' : '';
+  }
+
   render() {
     return (
-      <div className="description">
-        {parse('' + this.state.listing.listingDescription)}
+      <div className="hostedBy">
+        {parse('' + this.state.listing.accomodates + ' guest' + this.isPlural(this.state.listing.accomodates) + ' ' + unescape('&middot;') + ' ' + this.state.listing.bedrooms + ' bedroom' + this.isPlural(this.state.listing.bedrooms) + ' ' + unescape('&middot;') + ' ' + this.state.listing.beds + ' bed' + this.isPlural(this.state.listing.beds) + ' ' + unescape('&middot;') + ' ' + this.state.listing.bathrooms + ' bath' + this.isPlural(this.state.listing.bathrooms))}
       </div>
     )
   }
