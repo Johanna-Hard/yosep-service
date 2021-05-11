@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   getData() {
-    axios.get(`http://localhost:5000/api/listingheader/${this.state.listingId}`)
+    axios.get(`http://localhost:5001/api/listingheader/${this.state.listingId}`)
       .then(resp => {
         this.setState({ listing: resp.data[0] });
       })
