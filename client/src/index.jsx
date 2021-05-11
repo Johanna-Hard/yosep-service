@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import axios from 'axios';
-
+import parse from 'html-react-parser';
 class App extends React.Component {
-  constructor() {
+  constructor(props) {
     super();
     this.state = {
-      listingId: 1,
+      listingId: 4,
       listing: {}
     };
   }
@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   getData() {
-    axios.get(`http://localhost:5000/api/listingheader/${this.state.listingId}`)
+    axios.get(`/api/listingdescription/${this.state.listingId}`)
       .then(resp => {
         this.setState({ listing: resp.data[0] });
       })
@@ -32,19 +32,9 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
-        <div>
-          <h1 className="title">
-            {this.state.listing.listingName} code review -> talk is cheap
-          </h1>
-        </div>
-        <div className="subTitle">
-        <i style={{color: 'red'}} className='fas fa-star'></i>
-          <span style={{ marginBottom: '7px'}}> {this.state.listing.rating} ({this.state.listing.review} reviews) </span>
-          <span> &#8226; Superhost &#8226; </span>
-          <span className="header_addr">{this.state.listing.city}, {this.state.listing.state}</span>
-        </div>
-      </>
+      <div className="description">
+        {parse('' + this.state.listing.listingDescription)}
+      </div>
     )
   }
 }
