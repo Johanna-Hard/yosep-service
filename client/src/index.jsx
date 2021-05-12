@@ -39,7 +39,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="hostedBy">
-        {parse('' + this.state.listing.accomodates + ' guest' + this.isPlural(this.state.listing.accomodates) + ' ' + unescape('&middot;') + ' ' + this.state.listing.bedrooms + ' bedroom' + this.isPlural(this.state.listing.bedrooms) + ' ' + unescape('&middot;') + ' ' + this.state.listing.beds + ' bed' + this.isPlural(this.state.listing.beds) + ' ' + unescape('&middot;') + ' ' + this.state.listing.bathrooms + ' bath' + this.isPlural(this.state.listing.bathrooms))}
+        {parse(this.state.listing.accomodates + ' guest' + this.isPlural(this.state.listing.accomodates) + ' ' + unescape('&middot;') + ' ' + this.state.listing.bedrooms + ' bedroom' + this.isPlural(this.state.listing.bedrooms) + ' ' + unescape('&middot;') + ' ' + this.state.listing.beds + ' bed' + this.isPlural(this.state.listing.beds) + ' ' + unescape('&middot;') + ' ' + this.state.listing.bathrooms + ' bath' + this.isPlural(this.state.listing.bathrooms))}
       </div>
     )
   }
