@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import axios from 'axios';
 import parse from 'html-react-parser';
+
 class App extends React.Component {
   constructor(props) {
     super();
@@ -20,9 +21,9 @@ class App extends React.Component {
     console.log(this.state.listing);
   }
 
-
-
   getData() {
+    // console.log(this.state.listingId);
+    // fetch(`/api/hostedBy/${this.state.listingId}`)
     axios.get(`/api/hostedBy/${this.state.listingId}`)
       .then(resp => {
         this.setState({ listing: resp.data[0] });
@@ -45,4 +46,5 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('airbnb'));
+// ReactDOM.render(<App />, document.getElementById('airbnb'));
+export default App;

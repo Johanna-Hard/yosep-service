@@ -13,6 +13,7 @@ app.get('/api/hostedBy/:id', (req, res) => {
     if (err) {
       console.log('Error retrieving hostedBy info');
     } else {
+      // console.log(result[0]);
       res.json(result[0]);
     }
   });
