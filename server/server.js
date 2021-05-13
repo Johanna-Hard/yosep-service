@@ -13,16 +13,10 @@ app.get('/api/hostedBy/:id', (req, res) => {
     if (err) {
       console.log('Error retrieving hostedBy info');
     } else {
-      res.json(result);
+      res.json(result[0]);
     }
   });
 });
-
-// app.get('/hostedBy/:id', (req, res) => {
-//   models.listing.get(req.params.id, (err, result) => {
-//     res.json(result[0]);
-//   });
-// });
 
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`);
