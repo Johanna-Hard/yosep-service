@@ -46,5 +46,4 @@ class App extends React.Component {
   }
 }
 
-// ReactDOM.render(<App />, document.getElementById('airbnb'));
 export default App;
