@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Google+Sans:400,500,700');
+
+body {
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+  margin: 0px;
+  color: #2C3E50;
+  background-color: #FFF;
+  font-size: 1.1em;
+}
+
+h1 {
+  color: black;
+}
+
+h1.title {
+  margin-left: 10px;
+  margin-bottom: 10px;
+  color: #2C3E50;
+  font-size: 1.5rem;
+}
+
+.subTitle {
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.header_addr {
+  text-decoration: underline;
+}
+
+.description {
+  font-size: 17px;
+  margin-left: 10px;
+  width: 450px;
+}
+
+.hostedBy {
+  font-size: 1rem;
+}
