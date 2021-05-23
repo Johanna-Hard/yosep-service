@@ -1,10 +1,10 @@
 const express = require('express');
-// const cors = require('cors');
+const cors = require('cors');
 const db = require('./db');
 const models = require('./models');
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 const port = 5003;
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());

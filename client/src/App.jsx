@@ -1,14 +1,23 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import $ from 'jquery';
 import axios from 'axios';
 import parse from 'html-react-parser';
 
 class App extends React.Component {
-  constructor(props) {
+  constructor({location}) {
     super();
+
+    let propId = 1;
+    let propQuery = location.search;
+    if (propQuery) {
+        let id = parseInt(propQuery.slice(11));
+        console.log(id);
+        if (id > 0) {
+            propId = id;
+        }
+    }
+
     this.state = {
-      listingId: 1,
+      listingId: propId,
       listing: {}
     };
   }
