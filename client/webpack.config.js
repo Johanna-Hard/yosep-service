@@ -2,12 +2,7 @@ var path = require('path');
 var SRC_DIR = path.join(__dirname, '/src');
 var DIST_DIR = path.join(__dirname, '/dist');
 
-module.exports = {
-  entry: `${SRC_DIR}/index.js`,
-  output: {
-    filename: 'hostedBy.js',
-    path: DIST_DIR
-  },
+var config = {
   module: {
     rules: [
       {
@@ -33,3 +28,34 @@ module.exports = {
     ]
   }
 };
+
+var listingHeaderConfig = Object.assign({}, config, {
+  name: "listingHeader",
+  entry: `${SRC_DIR}/index.js`,
+  output: {
+    filename: 'listingHeader.js',
+    path: DIST_DIR
+  },
+});
+
+var listingDescriptionConfig = Object.assign({}, config, {
+  name: "listingDescription",
+  entry: `${SRC_DIR}/index.js`,
+  output: {
+    filename: 'listingDescription.js',
+    path: DIST_DIR
+  },
+});
+
+var hostedByConfig = Object.assign({}, config, {
+  name: "hostedBy",
+  entry: `${SRC_DIR}/HostedBy.jsx`,
+  output: {
+    filename: 'hostedBy.js',
+    path: DIST_DIR
+  },
+});
+
+module.exports = [
+  listingHeaderConfig, listingDescriptionConfig, hostedByConfig,
+];
