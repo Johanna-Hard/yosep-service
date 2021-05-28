@@ -1,18 +1,14 @@
 const express = require('express');
-const cors = require('cors');
+const headers = require('./cors');
 const db = require('./db');
 const models = require('./models');
 
 const app = express();
-app.use(cors());
+// app.use(cors());
 const port = 5001;
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-/* app.get('/listingHeader', (req, res) => {
-   res.send('test');
-}); */
 
 app.get('/api/listingheader', (req, res) => {
   models.listings.get((err, results) => {
@@ -23,6 +19,13 @@ app.get('/api/listingheader', (req, res) => {
 app.get('/api/listingheader/:id', (req, res) => {
   models.listing.get(req.params.id, (err, result) => {
     res.json(result);
+  });
+});
+
+app.get('/api/listingdescription/:id', (req, res) => {
+  models.listing.get(req.params.id, (err, result) => {
+    console.log(result);
+    res.set(headers).status(200).json(result);
   });
 });
 

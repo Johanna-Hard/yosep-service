@@ -3,7 +3,6 @@ var SRC_DIR = path.join(__dirname, '/src');
 var DIST_DIR = path.join(__dirname, '/dist');
 
 var config = {
-  // entry: `${SRC_DIR}/index.js`,
   module: {
     rules: [
       {
@@ -30,33 +29,15 @@ var config = {
   }
 };
 
-var listingHeaderConfig = Object.assign({}, config, {
-  name: "listingHeader",
-  entry: `${SRC_DIR}/ListingHeader.jsx`,
-  output: {
-    filename: 'listingHeader.js',
-    path: DIST_DIR
-  },
-});
-
 var listingDescriptionConfig = Object.assign({}, config, {
   name: "listingDescription",
-  // entry: `${SRC_DIR}/index.js`,
+  entry: `${SRC_DIR}/ListingDescription.jsx`,
   output: {
     filename: 'listingDescription.js',
     path: DIST_DIR
   },
 });
 
-var hostedByConfig = Object.assign({}, config, {
-  name: "hostedBy",
-  entry: `${SRC_DIR}/HostedBy.jsx`,
-  output: {
-    filename: 'hostedBy.js',
-    path: DIST_DIR
-  },
-});
-
 module.exports = [
-  listingHeaderConfig, listingDescriptionConfig, hostedByConfig,
+  listingDescriptionConfig,
 ];
