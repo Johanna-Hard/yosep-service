@@ -29,6 +29,15 @@ var config = {
   }
 };
 
+var listingHeaderConfig = Object.assign({}, config, {
+  name: "listingHeader",
+  entry: `${SRC_DIR}/ListingHeader.jsx`,
+  output: {
+    filename: 'listingHeader.js',
+    path: DIST_DIR
+  },
+});
+
 var listingDescriptionConfig = Object.assign({}, config, {
   name: "listingDescription",
   entry: `${SRC_DIR}/ListingDescription.jsx`,
@@ -38,6 +47,15 @@ var listingDescriptionConfig = Object.assign({}, config, {
   },
 });
 
+var hostedByConfig = Object.assign({}, config, {
+  name: "hostedBy",
+  entry: `${SRC_DIR}/HostedBy.jsx`,
+  output: {
+    filename: 'hostedBy.js',
+    path: DIST_DIR
+  },
+});
+
 module.exports = [
-  listingDescriptionConfig,
+  listingHeaderConfig, listingDescriptionConfig, hostedByConfig,
 ];
