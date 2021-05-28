@@ -56,11 +56,11 @@ class HostedBy extends React.Component {
   }
 }
 
+export default HostedBy;
+
 ReactDOM.render(
   <Router>
     <Route path="/" component={HostedBy} />
   </Router>,
   document.getElementById('hostedBy')
 );
-
-export default HostedBy;
