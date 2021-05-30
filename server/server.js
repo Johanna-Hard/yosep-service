@@ -1,10 +1,11 @@
 const express = require('express');
 const headers = require('./cors');
+const cors = require('cors');
 const db = require('./db');
 const models = require('./models');
 
 const app = express();
-// app.use(cors());
+app.use(cors());
 const port = 5001;
 app.use(express.static(__dirname + '/../client/dist'));
 app.use(express.json());
@@ -24,7 +25,7 @@ app.get('/api/listingheader/:id', (req, res) => {
 
 app.get('/api/listingdescription/:id', (req, res) => {
   models.listing.get(req.params.id, (err, result) => {
-    console.log(result);
+    // console.log(result);
     res.set(headers).status(200).json(result);
   });
 });

@@ -1,0 +1,1 @@
+ssh -i "airbnb.pem" ubuntu@ec2-18-188-187-234.us-east-2.compute.amazonaws.com
