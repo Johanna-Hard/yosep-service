@@ -33,12 +33,12 @@ class ListingDescription extends React.Component {
   }
 
   getData() {
-    axios.get(`http://localhost:5001/api/listingdescription/${this.state.listingId}`)
+    axios.get(`/api/listingdescription/${this.state.listingId}`)
       .then(resp => {
         this.setState({ listing: resp.data[0] });
       })
       .catch(err => {
-        console.log('===== AXIOS get request failed');
+        console.log('===== AXIOS listing description get request failed');
       });
   }
 

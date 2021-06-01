@@ -122,3 +122,5 @@ typings/
 .tern-port
 
 *.pem
+*.txt
+*.sh

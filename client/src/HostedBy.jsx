@@ -33,7 +33,7 @@ class HostedBy extends React.Component {
 
   getData() {
     // console.log(this.state.listingId);
-    axios.get(`http://localhost:5001/api/hostedBy/${this.state.listingId}`)
+    axios.get(`/api/hostedBy/${this.state.listingId}`)
       .then(resp => {
         this.setState({ listing: resp.data });
       })

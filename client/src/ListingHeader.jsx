@@ -32,12 +32,12 @@ class ListingHeader extends React.Component {
     }
 
     getData() {
-        axios.get(`http://localhost:5001/api/listingheader/${this.state.listingId}`)
+        axios.get(`/api/listingheader/${this.state.listingId}`)
             .then(resp => {
                 this.setState({ listing: resp.data[0] });
             })
             .catch(err => {
-                console.log('===== AXIOS get request failed');
+                console.log('===== AXIOS listing header request failed');
             });
 
         axios.get(`http://localhost:2002/reviews/${this.state.listingId}`)
